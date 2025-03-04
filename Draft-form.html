@@ -1,0 +1,524 @@
+<form class="team-form">
+    <div class="input-container">
+<input type="text" id="input" required="">
+<label for="input" class="label">Team 1</label>
+<div class="underline"></div>
+</div>
+
+     <div class="input-container">
+<input type="text" id="input" required="">
+<label for="input" class="label">Team 2</label>
+<div class="underline"></div>
+</div>
+
+     <fieldset>
+         <legend>Number of Bans:</legend>
+        <div class="radio-inputs">
+     <label>
+         <input class="radio-input" type="radio" name="engine">
+             <span class="radio-tile">
+                 <span class="radio-icon">
+                     
+                 </span>
+                 <span class="radio-label">1 Ban</span>
+             </span>
+     </label>
+     <label>
+         <input checked="" class="radio-input" type="radio" name="engine">
+         <span class="radio-tile">
+             <span class="radio-icon">
+                
+             </span>
+             <span class="radio-label">2 Bans</span>
+         </span>
+     </label>
+     <label>
+         <input class="radio-input" type="radio" name="engine">
+         <span class="radio-tile">
+             <span class="radio-icon">
+         
+             </span>
+             <span class="radio-label">3 Bans</span>
+         </span>
+     </label>
+</div>
+     </fieldset>
+
+     <label for="pick-time">Time for every pick (sec):</label>
+    <div class="custom-number-input">
+ <input type="number" id="custom-number" value="30" min="1">
+      <div class="signWrapper">
+ <div class="plus">+</div>
+ <div class="minus">-</div>
+      </div>
+</div>
+
+     <label for="extra-time">Extra time for Teams (sec):</label>
+     <div class="custom-number-input">
+ <input type="number" id="custom-number1" value="30" min="1">
+       <div class="signWrapper">
+ <div class="plus1">+</div>
+ <div class="minus1">-</div>
+       </div>
+</div>
+   
+    <div class="switch-container">
+         <label for="mirror-picks">Enable Mirror Picks:</label>
+         <label class="switch">
+             <input type="checkbox" id="mirror-picks" name="mirror-picks">
+             <span class="slider round"></span>
+         </label>
+     </div>
+
+     <button type="submit">Submit</button>
+ </form>
+
+ <style>
+    body{
+  background: #1a1a1a;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    background-color: #1a1a1a;
+}
+
+.team-form {
+    background: gainsboro;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 40%;
+}
+
+label {
+    font-weight: bold;
+    text-align: center
+}
+input[type="number"] {
+    width: 20%;
+    padding:5px;
+    margin-top: 0px;
+    margin: auto;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    height: 30px;
+    padding-block: 5px;
+    padding-inline: 0;
+    text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"] {
+    position: relative;
+    width: 100px;
+    padding-right: 0px; /* Space for custom buttons */
+}
+
+/* Container for custom buttons */
+.custom-number-input {
+  width: fit-content;
+    position: relative;
+    display: flex;
+  margin: auto;
+}
+
+/* Custom buttons */
+.custom-number-input .plus {
+    position: relative;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin: 1px;
+  user-select: none;
+}
+
+.custom-number-input .plus1 {
+    position: relative;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin: 1px;
+  user-select: none;
+}
+
+.custom-number-input .minus {
+    position: relative;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin: 1px;
+  user-select: none;
+}
+
+.custom-number-input .minus1 {
+    position: relative;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin: 1px;
+  user-select: none;
+}
+
+.custom-number-input .plus {
+    top: 0px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-number-input .plus1 {
+    top: 0px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-number-input .minus {
+    bottom: 0px;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-number-input .minus1 {
+    bottom: 0px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-number-input button:hover {
+    background-color: #ccc;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+.signWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+fieldset {
+  width: 100%;
+  border: none;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+legend{
+  width: 100%;
+  text-align: center;
+}
+
+button {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease
+}
+
+button:hover {
+    background-color: #4d4d4d;
+}
+
+.input-container {
+  position: relative;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #1a1a1a;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+
+/* Toggle Switch */
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  margin-top: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #1a1a1a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Radio switch */
+.radio-inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-inputs > * {
+  margin: 6px;
+}
+
+.radio-input:checked + .radio-tile {
+  border-color: #1a1a1a;
+  box-shadow: 0 5px 10px #4d4d4d;
+  color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #1a1a1a;
+}
+
+.radio-input:focus + .radio-tile {
+  border-color: #1a1a1a;
+  box-shadow: 0 5px 10px #4d4d4d, 0 0 0 4px #666666;
+}
+
+.radio-input:focus + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  min-height: 80px;
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+  border-color: #1a1a1a;
+}
+
+.radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #1a1a1a;
+}
+
+.radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+ </style>
+
+ <script>
+    document.querySelector(".plus").addEventListener("click", function () {
+    let input = document.getElementById("custom-number");
+    input.value = parseInt(input.value) + 1;
+});
+
+document.querySelector(".minus").addEventListener("click", function () {
+    let input = document.getElementById("custom-number");
+    if (input.value > parseInt(input.min)) {
+        input.value = parseInt(input.value) - 1;
+    }
+});
+
+
+document.querySelector(".plus1").addEventListener("click", function () {
+    let input = document.getElementById("custom-number1");
+    input.value = parseInt(input.value) + 1;
+});
+
+document.querySelector(".minus1").addEventListener("click", function () {
+    let input = document.getElementById("custom-number1");
+    if (input.value > parseInt(input.min)) {
+        input.value = parseInt(input.value) - 1;
+    }
+});
+ </script>
