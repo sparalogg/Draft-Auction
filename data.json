@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1, 
+        "name": "Argus",
+        "path": "pred_icons/argus.png"
+    },
+    {
+        "id": 2, 
+        "name": "Aurora",
+        "path": "pred_icons/aurora.png"
+    },
+    {
+        "id": 3, 
+        "name": "Belica",
+        "path": "pred_icons/belica.png"
+    },
+    {
+        "id": 4, 
+        "name": "Countess",
+        "path": "pred_icons/countess.png"
+    },
+    {
+        "id": 5, 
+        "name": "Crunch",
+        "path": "pred_icons/crunch.png"
+    },
+    {
+        "id": 6, 
+        "name": "Dekker",
+        "path": "pred_icons/dekker.png"
+    },
+    {
+        "id": 7, 
+        "name": "Drongo",
+        "path": "pred_icons/drongo.png"
+    },
+    {
+        "id": 8, 
+        "name": "The Fey",
+        "path": "pred_icons/fey.png"
+    },
+    {
+        "id": 9, 
+        "name": "Gadget",
+        "path": "pred_icons/gadget.png"
+    },
+    {
+        "id": 10, 
+        "name": "Gideon",
+        "path": "pred_icons/gideon.png"
+    },
+    {
+        "id": 11, 
+        "name": "Greystone",
+        "path": "pred_icons/greystone.png"
+    },
+    {
+        "id": 12, 
+        "name": "Grim.EXE",
+        "path": "pred_icons/grim.png"
+    },
+    {
+        "id": 13, 
+        "name": "Grux",
+        "path": "pred_icons/grux.png"
+    },
+    {
+        "id": 14, 
+        "name": "Howitzer",
+        "path": "pred_icons/crunch.png"
+    },
+    {
+        "id": 15, 
+        "name": "Iggy & Scorch",
+        "path": "pred_icons/iggy.png"
+    },
+    {
+        "id": 16, 
+        "name": "Kallari",
+        "path": "pred_icons/kallari.png"
+    },
+    {
+        "id": 17, 
+        "name": "Khaimera",
+        "path": "pred_icons/khaimera.png"
+    },
+    {
+        "id": 18, 
+        "name": "Kira",
+        "path": "pred_icons/kira.png"
+    },
+    {
+        "id": 19, 
+        "name": "Kwang",
+        "path": "pred_icons/kwang.png"
+    },
+    {
+        "id": 20, 
+        "name": "Morigesh",
+        "path": "pred_icons/morigesh.png"
+    },
+    {
+        "id": 21, 
+        "name": "Mourn",
+        "path": "pred_icons/mourn.png"
+    },
+    {
+        "id": 22, 
+        "name": "Murdock",
+        "path": "pred_icons/murdock.png"
+    },
+    {
+        "id": 23, 
+        "name": "Muriel",
+        "path": "pred_icons/muriel.png"
+    },
+    {
+        "id": 24, 
+        "name": "Narbash",
+        "path": "pred_icons/narbash.png"
+    },
+    {
+        "id": 25, 
+        "name": "Phase",
+        "path": "pred_icons/phase.png"
+    },
+    {
+        "id": 26, 
+        "name": "Rampage",
+        "path": "pred_icons/rampage.png"
+    },
+    {
+        "id": 27, 
+        "name": "Revenant",
+        "path": "pred_icons/revenant.png"
+    },
+    {
+        "id": 28, 
+        "name": "Riktor",
+        "path": "pred_icons/riktor.png"
+    },
+    {
+        "id": 29, 
+        "name": "Serath",
+        "path": "pred_icons/serath.png"
+    },
+    {
+        "id": 30, 
+        "name": "Sevarog",
+        "path": "pred_icons/sevarog.png"
+    },
+    {
+        "id": 31, 
+        "name": "Shinbi",
+        "path": "pred_icons/shinbi.png"
+    },
+    {
+        "id": 32, 
+        "name": "Skylar",
+        "path": "pred_icons/skylar.png"
+    },
+    {
+        "id": 33, 
+        "name": "Sparrow",
+        "path": "pred_icons/sparrow.png"
+    },
+    {
+        "id": 34, 
+        "name": "Steel",
+        "path": "pred_icons/steel.png"
+    },
+    {
+        "id": 35, 
+        "name": "Terra",
+        "path": "pred_icons/terra.png"
+    },
+    {
+        "id": 36, 
+        "name": "Twinblast",
+        "path": "pred_icons/twinblast.png"
+    },
+    {
+        "id": 37, 
+        "name": "Wraith",
+        "path": "pred_icons/wraith.png"
+    },
+    {
+        "id": 38, 
+        "name": "Yin",
+        "path": "pred_icons/yin.png"
+    },
+    {
+        "id": 39, 
+        "name": "Zarus",
+        "path": "pred_icons/zarus.png"
+    },
+    {
+        "id": 40, 
+        "name": "Zinx",
+        "path": "pred_icons/zinx.png"
+    }
+]
