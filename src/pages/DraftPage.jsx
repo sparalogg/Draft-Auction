@@ -19,6 +19,11 @@ import { getDraftRole, saveDraftRole } from '../utils/draftRoleStorage';
 import { clearDraftRole, cleanupOldRoles } from '../utils/draftRoleStorage';
 import ConnectionStatus from '../components/common/ConnectionStatus';
 
+
+const { ref, set } = require('firebase/database');
+const { database } = require('../services/firebase');
+
+
 const DraftPage = () => {
   const { t } = useTranslation();
   const { draftId } = useParams();
@@ -30,7 +35,8 @@ const DraftPage = () => {
     resetDraft, 
     togglePause,
     updateTeamNames ,
-    setCoinFlipStatus 
+    setCoinFlipStatus,
+    leaveDraft  
   } = useDraft();
   const { settings } = useSettings();
   
@@ -40,12 +46,22 @@ const DraftPage = () => {
   const [isJoining, setIsJoining] = useState(true);
   const [error, setError] = useState(null);
   
-  const handleExitDraft = () => {
-    // Eseguiamo una pulizia dei ruoli vecchi a ogni uscita
+  const handleExitDraft = async () => {
+    // Pulisci i ruoli vecchi a ogni uscita
     cleanupOldRoles(7); // Pulisce i ruoli più vecchi di 7 giorni
     
-    // Se l'utente sta lasciando il draft, non cancelliamo il suo ruolo, 
-    // così potrà rientrare con lo stesso ruolo in futuro
+    // Se abbiamo un draftId e un userTeam, proviamo a lasciare il draft correttamente
+    if (state.draftId && state.userTeam) {
+      try {
+        // Chiama leaveDraft dal context
+        await leaveDraft();
+        console.log("Disconnessione dal draft completata");
+      } catch (error) {
+        console.error("Errore durante la disconnessione:", error);
+      }
+    }
+    
+    // Naviga alla home page
     navigate('/');
   };
 
@@ -412,7 +428,7 @@ const DraftPage = () => {
           onClick={handleExitDraft}
         >
           <i className="fas fa-sign-out-alt me-2"></i>
-          Esci
+          Exit
         </button>
       </div>
       

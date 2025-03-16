@@ -1126,6 +1126,33 @@ const manualCleanupDrafts = () => {
   };
 
 
+
+  const leaveDraft = async () => {
+    if (!state.draftId || !state.userTeam) return;
+    
+    try {
+      // Cancella l'intervallo di aggiornamento della presenza
+      if (window.presenceInterval) {
+        clearInterval(window.presenceInterval);
+        window.presenceInterval = null;
+      }
+      
+      // Cancella esplicitamente la presenza dell'utente
+      const presenceRef = ref(database, `drafts/${state.draftId}/presence/${state.userTeam}`);
+      await set(presenceRef, null);
+      
+      // Annulla anche l'onDisconnect setup
+      const onDisconnectRef = ref(database, `drafts/${state.draftId}/presence/${state.userTeam}`);
+      await onDisconnect(onDisconnectRef).cancel();
+      
+      console.log(`Utente ${state.userTeam} ha lasciato esplicitamente il draft ${state.draftId}`);
+      return true;
+    } catch (error) {
+      console.error("Errore durante la disconnessione dal draft:", error);
+      return false;
+    }
+  };
+
   // Metti in pausa/riprendi il draft
   const togglePause = () => {
     if (!state.draftId || 
@@ -1478,6 +1505,7 @@ const isChampionSelectable = (championId, isReusable) => {
         updateTeamNames,
         setCoinFlipStatus,
         manualCleanupDrafts,
+        leaveDraft,
       }}
     >
       {children}

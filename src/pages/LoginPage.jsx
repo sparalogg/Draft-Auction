@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDraft } from '../context/DraftContext';
 import { useSettings } from '../context/SettingsContext';
@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 const LoginPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation()
   const { settings } = useSettings();
   const { user } = useAuth();
   const draftContext = useDraft();
@@ -52,6 +53,18 @@ const LoginPage = () => {
     setCaptchaVerified(!!token);
     setError(null);
   };
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    
+    if (params.has('quick-access') && params.has('d') && params.has('r')) {
+      const draftId = params.get('d');
+      const accessCode = params.get('r');
+      
+      // Reindirizza alla rotta di quick-access
+      navigate(`/quick-access/${draftId}/${accessCode}`);
+    }
+  }, [location, navigate]);
 
   // Copia negli appunti
   const copyToClipboard = React.useCallback((text, successMessage) => {
@@ -207,13 +220,13 @@ const LoginPage = () => {
       const basePath = window.location.origin + window.location.pathname.replace(/\/+$/, '');
 
       const blueTeamLink = createdDraft.accessCodes?.blue 
-        ? `${basePath}/quick-access/${createdDraft.draftCode}/${createdDraft.accessCodes.blue}` 
+        ? `${basePath}?quick-access&d=${createdDraft.draftCode}&r=${createdDraft.accessCodes.blue}` 
         : '#';
       const redTeamLink = createdDraft.accessCodes?.red 
-        ? `${basePath}/quick-access/${createdDraft.draftCode}/${createdDraft.accessCodes.red}` 
+        ? `${basePath}?quick-access&d=${createdDraft.draftCode}&r=${createdDraft.accessCodes.red}` 
         : '#';
       const adminLink = createdDraft.accessCodes?.admin 
-        ? `${basePath}/quick-access/${createdDraft.draftCode}/${createdDraft.accessCodes.admin}` 
+        ? `${basePath}?quick-access&d=${createdDraft.draftCode}&r=${createdDraft.accessCodes.admin}` 
         : '#';
     
     return (

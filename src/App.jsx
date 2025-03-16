@@ -14,6 +14,7 @@ import './styles/multiplayer.css';
 import './styles/history.css';
 import { cleanupOldRoles } from './utils/draftRoleStorage';
 import QuickAccessPage from './pages/QuickAccessPage';
+import QueryParamRedirect from './pages/QueryParamRedirect'; // Importa la nuova componente
 
 /**
  * Main App component with provider setup and routing
@@ -63,6 +64,8 @@ const App = () => {
                   path="/quick-access/:draftId/:accessCode" 
                   element={<QuickAccessPage />} 
                 />
+                {/* Nuova rotta per gestire i parametri di query */}
+                <Route path="/" element={<QueryParamRedirect />} />
                 {/* Catch-all route come ultima opzione */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>

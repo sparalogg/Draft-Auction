@@ -25,7 +25,7 @@ const ConnectionStatus = () => {
         
         // Determina quali ruoli sono connessi
         const now = Date.now();
-        const activeThreshold = 60000; // 60 secondi
+        const activeThreshold = 30000; // 60 secondi
         
         setConnections({
           blue: presenceData.blue && (now - presenceData.blue < activeThreshold),
