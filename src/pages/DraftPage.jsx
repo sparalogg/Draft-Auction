@@ -55,7 +55,7 @@ const DraftPage = () => {
       try {
         // Chiama leaveDraft dal context
         await leaveDraft();
-        console.log("Disconnessione dal draft completata");
+        //console.log("Disconnessione dal draft completata");
       } catch (error) {
         console.error("Errore durante la disconnessione:", error);
       }
@@ -67,14 +67,14 @@ const DraftPage = () => {
 
   // Handle the start/new draft button
   const handleStartDraft = () => {
-    console.log('Avvio draft', {
+    /*console.log('Avvio draft', {
       startingTeam: state.settings.startingTeam,
       currentPhase: state.currentPhase
-    });
+    });*/
   
     // Mostra la modale di lancio moneta solo se nelle impostazioni è selezionato 'coinFlip'
     if (state.settings.startingTeam === 'coinFlip') {
-      console.log("Avvio coin flip");
+      //console.log("Avvio coin flip");
       // Usa setCoinFlipStatus direttamente, non tramite state
       setCoinFlipStatus(true);
     } else {
@@ -84,7 +84,7 @@ const DraftPage = () => {
   };
 
   const handleCoinFlipModalClose = (startingTeam) => {
-    console.log('Chiusura coin flip modal', { startingTeam });
+    //console.log('Chiusura coin flip modal', { startingTeam });
     
     // Nascondi il modal
     setShowCoinFlipModal(false);
@@ -102,7 +102,7 @@ const DraftPage = () => {
 
   useEffect(() => {
     if (storedAccessCode.current) {
-      console.log("Trovato codice di accesso in sessionStorage:", storedAccessCode.current);
+      //console.log("Trovato codice di accesso in sessionStorage:", storedAccessCode.current);
       sessionStorage.removeItem('draftAccessCode');
     }
   }, []);
@@ -110,12 +110,12 @@ const DraftPage = () => {
   useEffect(() => {
     // Tutti i client dovrebbero vedere o nascondere la modale in base allo stato globale
     if (state.coinFlipInProgress && !showCoinFlipModal) {
-      console.log(`${state.userTeam}: Mostro coin flip modal`);
+      //console.log(`${state.userTeam}: Mostro coin flip modal`);
       setShowCoinFlipModal(true);
     }
     
     if (!state.coinFlipInProgress && showCoinFlipModal) {
-      console.log(`${state.userTeam}: Nascondo coin flip modal`);
+      //console.log(`${state.userTeam}: Nascondo coin flip modal`);
       setShowCoinFlipModal(false);
     }
   }, [state.coinFlipInProgress, showCoinFlipModal]);
@@ -127,11 +127,11 @@ const DraftPage = () => {
     
     const connectToDraft = async () => {
       if (!draftId) {
-        console.log("No draftId provided");
+        //console.log("No draftId provided");
         return;
       }
       
-      console.log("Connecting to draft:", draftId);
+      //console.log("Connecting to draft:", draftId);
       setIsJoining(true);
       
       try {
@@ -152,7 +152,7 @@ const DraftPage = () => {
         if (savedTeamNames) {
           try {
             parsedTeamNames = JSON.parse(savedTeamNames);
-            console.log("Trovati nomi team in sessionStorage:", parsedTeamNames);
+            //console.log("Trovati nomi team in sessionStorage:", parsedTeamNames);
           } catch (e) {
             console.error("Errore nel parsing dei nomi team:", e);
           }
@@ -161,7 +161,7 @@ const DraftPage = () => {
         }
         
         if (sessionAccessCode) {
-          console.log("Using session access code:", sessionAccessCode);
+          //console.log("Using session access code:", sessionAccessCode);
           effectiveAccessCode = sessionAccessCode;
           if (sessionAccessCode.startsWith('AD')) {
             role = 'admin';
@@ -176,12 +176,12 @@ const DraftPage = () => {
         } 
         // Se non c'è un codice in sessionStorage, usa quello salvato in localStorage (se esiste)
         else if (savedRoleData && savedRoleData.role && savedRoleData.role !== 'spectator') {
-          console.log("Ripristino del ruolo salvato:", savedRoleData.role);
+          //console.log("Ripristino del ruolo salvato:", savedRoleData.role);
           role = savedRoleData.role;
           effectiveAccessCode = savedRoleData.accessCode;
         }
         
-        console.log("Joining draft as:", role);
+        //console.log("Joining draft as:", role);
         
         // Se abbiamo un codice di accesso, lo utilizziamo
         if (effectiveAccessCode && role !== 'spectator') {
@@ -191,13 +191,13 @@ const DraftPage = () => {
         
         // Join del draft con il ruolo determinato
         await joinDraft(draftId, role);
-        console.log("Successfully joined draft");
+        //console.log("Successfully joined draft");
         
         // Se abbiamo nomi dei team in sessionStorage e siamo admin,
         // impostiamoli dopo il join (con un breve ritardo per sicurezza)
         if (parsedTeamNames && role === 'admin') {
           setTimeout(() => {
-            console.log("Aggiorno i nomi dei team da sessionStorage:", parsedTeamNames);
+            //console.log("Aggiorno i nomi dei team da sessionStorage:", parsedTeamNames);
             // Assicurati che draftContext.updateTeamNames sia disponibile
             if (typeof updateTeamNames === 'function') {
               updateTeamNames(
@@ -251,7 +251,7 @@ const DraftPage = () => {
       return;
     }
     
-    if (window.confirm("Sei sicuro di voler resettare il draft? Questa azione cancellerà tutte le selezioni.")) {
+    if (window.confirm("Are you sure you want to reset the draft? This action will clear all selections.")) {
       try {
         // Mostra un indicatore di caricamento
         const loadingDiv = document.createElement('div');
@@ -260,7 +260,7 @@ const DraftPage = () => {
           <div class="global-loading-backdrop"></div>
           <div class="global-loading-content">
             <div class="global-loading-spinner"></div>
-            <p>Reset in corso...</p>
+            <p>Reset in progress...</p>
           </div>
         `;
         document.body.appendChild(loadingDiv);
@@ -274,15 +274,15 @@ const DraftPage = () => {
         }
         
         if (success) {
-          console.log("Reset completato con successo");
-          alert("Draft resettato con successo!");
+          //console.log("Reset completed successfully");
+          alert("Draft reset successfully!");
         } else {
           console.error("Reset fallito");
           alert("Si è verificato un errore durante il reset.");
         }
       } catch (error) {
         console.error("Errore durante il reset:", error);
-        alert(`Si è verificato un errore durante il reset: ${error.message}`);
+        alert(`An error occurred during the reset: ${error.message}`);
       }
     }
   };

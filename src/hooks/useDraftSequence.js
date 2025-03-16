@@ -3,11 +3,11 @@ export function generateDraftSequence({
   teamNames,
   startingTeam = null
 }) {
-  console.log('Generazione sequenza draft:', {
+  /*console.log('Generazione sequenza draft:', {
     numberOfBans,
     teamNames,
     startingTeam
-  });
+  });*/
 
   // Se non è specificato un team iniziale, usa il lancio moneta
   if (!startingTeam) {
@@ -238,6 +238,6 @@ export function generateDraftSequence({
     ...createFinalPickSequence(team1, team2)
   ];
 
-  console.log("Generated sequence:", sequence);
+  //console.log("Generated sequence:", sequence);
   return sequence;
 }

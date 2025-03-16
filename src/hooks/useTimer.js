@@ -22,12 +22,12 @@ export function useTimer() {
     if (shouldNotStartTimer) return;
 
     intervalRef.current = setInterval(() => {
-      console.log('Timer Tick:', {
+      /*console.log('Timer Tick:', {
         currentTimer: state.currentTimer,
         currentTeam: state.currentTeam,
         bonusTime: state.teamBonusTime[state.currentTeam],
         isUsingBonusTime: state.isUsingBonusTime?.[state.currentTeam]
-      });
+      });*/
 
       // Aggiorna sempre il timer
       updateTimer();
@@ -39,7 +39,7 @@ export function useTimer() {
 
       // Selezione automatica solo se tutto il tempo è esaurito
       if (state.currentTimer <= 0 && !isUsingBonusTime && remainingBonusTime <= 0) {
-        console.log('Preparing auto-select due to complete time expiration');
+        //console.log('Preparing auto-select due to complete time expiration');
         clearInterval(intervalRef.current);
         
         const availableChampions = champions.filter(champion => {

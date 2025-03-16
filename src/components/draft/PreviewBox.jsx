@@ -10,7 +10,7 @@ const PreviewBox = ({ team }) => {
   const currentStep = state.draftSequence[state.currentStepIndex] || {};
   
   // Debug log dettagliato
-  console.log('PreviewBox Debug:', {
+  /*console.log('PreviewBox Debug:', {
     team,
     currentTeam: state.currentTeam,
     currentStepIndex: state.currentStepIndex,
@@ -18,7 +18,7 @@ const PreviewBox = ({ team }) => {
     expectedTeam: currentStep.team,
     isMultipleSelectionStep: state.isMultipleSelectionStep,
     requiredSelections: state.requiredSelections
-  });
+  });*/
 
   // Verifica più accurata per determinare se questo è il team corrente
   const isCurrentTeam = 
@@ -74,7 +74,7 @@ const PreviewBox = ({ team }) => {
             <div>{t('draft.selectHero')}</div>
             {isMultipleSelection && (
               <div className="mt-2 badge bg-info">
-                Seleziona {requiredSelections} eroi
+                Select {requiredSelections} hero
               </div>
             )}
           </div>
@@ -90,7 +90,7 @@ const PreviewBox = ({ team }) => {
           <div className="w-100 text-center mb-3">
             <div className="bg-dark bg-opacity-75 p-2 rounded">
               <span className="text-white">
-                {currentSelections.length}/{requiredSelections} eroi selezionati
+                {currentSelections.length}/{requiredSelections} hero selected
               </span>
             </div>
           </div>
@@ -128,7 +128,7 @@ const PreviewBox = ({ team }) => {
                   <i className="fa-solid fa-plus" style={{ fontSize: '1.5rem', color: '#aaa' }}></i>
                 </div>
                 <div className="text-muted small mt-1">
-                  Seleziona campione {currentSelections.length + index + 1}
+                  Select {currentSelections.length + index + 1}
                 </div>
               </div>
             ))

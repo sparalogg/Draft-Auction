@@ -21,7 +21,7 @@ export const saveDraftRole = (draftId, role, accessCode = null) => {
       // Salva l'oggetto aggiornato nel localStorage
       localStorage.setItem('draftRoles', JSON.stringify(storedRoles));
       
-      console.log(`Ruolo salvato per draft ${draftId}: ${role}`);
+      //console.log(`Ruolo salvato per draft ${draftId}: ${role}`);
     } catch (error) {
       console.error('Errore durante il salvataggio del ruolo nel localStorage:', error);
     }
@@ -58,7 +58,7 @@ export const saveDraftRole = (draftId, role, accessCode = null) => {
       if (storedRoles[draftId]) {
         delete storedRoles[draftId];
         localStorage.setItem('draftRoles', JSON.stringify(storedRoles));
-        console.log(`Ruolo eliminato per draft ${draftId}`);
+        //console.log(`Ruolo eliminato per draft ${draftId}`);
       }
     } catch (error) {
       console.error('Errore durante l\'eliminazione del ruolo dal localStorage:', error);
@@ -86,7 +86,7 @@ export const saveDraftRole = (draftId, role, accessCode = null) => {
       
       if (changed) {
         localStorage.setItem('draftRoles', JSON.stringify(storedRoles));
-        console.log('Pulizia dei ruoli vecchi completata');
+        //console.log('Pulizia dei ruoli vecchi completata');
       }
     } catch (error) {
       console.error('Errore durante la pulizia dei ruoli vecchi:', error);

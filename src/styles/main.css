@@ -422,6 +422,7 @@ body {
   height: fit-content;
   position: relative;
   overflow: auto;
+  color: white;
 }
 
 .lock-button {

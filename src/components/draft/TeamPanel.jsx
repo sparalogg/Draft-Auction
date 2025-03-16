@@ -20,13 +20,13 @@ const TeamPanel = ({ team }) => {
   useEffect(() => {
     // Se ci spostiamo a notStarted da qualsiasi altra fase, è probabilmente un reset
     if (state.currentPhase === 'notStarted' && lastPhaseRef.current !== 'notStarted') {
-      console.log(`TeamPanel ${team}: Rilevato cambio fase a notStarted, forzo aggiornamento`);
+      //console.log(`TeamPanel ${team}: Rilevato cambio fase a notStarted, forzo aggiornamento`);
       setForceUpdate(prev => prev + 1);
     }
     
     // Se cambia il timestamp del reset, è sicuramente un reset
     if (state.lastResetTimestamp && state.lastResetTimestamp !== lastResetTimestampRef.current) {
-      console.log(`TeamPanel ${team}: Rilevato cambio timestamp reset, forzo aggiornamento`);
+      //console.log(`TeamPanel ${team}: Rilevato cambio timestamp reset, forzo aggiornamento`);
       setForceUpdate(prev => prev + 1);
     }
     
@@ -43,7 +43,7 @@ const TeamPanel = ({ team }) => {
   // Estrai esplicitamente i dati necessari (la dipendenza da forceUpdate garantisce l'aggiornamento)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    console.log(`TeamPanel ${team}: Force update triggered: ${forceUpdate}`);
+    //console.log(`TeamPanel ${team}: Force update triggered: ${forceUpdate}`);
   }, [forceUpdate, team]);
   
   // Accesso diretto e sicuro alle proprietà evitando riferimenti nulli
@@ -54,7 +54,7 @@ const TeamPanel = ({ team }) => {
   useEffect(() => {
     // Forza un re-render quando cambia resetId
     if (state.resetId) {
-      console.log(`TeamPanel ${team}: Reset ID cambiato: ${state.resetId}, forzo aggiornamento`);
+      //console.log(`TeamPanel ${team}: Reset ID cambiato: ${state.resetId}, forzo aggiornamento`);
       
       // Pulizia manuale dei contenuti DOM
       const panel = document.querySelector(`.team-panel.${team}`);

@@ -48,13 +48,13 @@ const ChampionCard = ({ champion, canSelect = true, spectatorMode = false }) => 
   
   // Log dettagliato per debug
   useEffect(() => {
-    console.log(`Champion ${id}:`, {
+    /*console.log(`Champion ${id}:`, {
       isDisabled,
       disabledFromSettings,
       disabledFromState,
       allDisabledChampions,
       forceUpdate
-    });
+    });*/
   }, [id, isDisabled, disabledFromSettings, disabledFromState, allDisabledChampions, forceUpdate]);
   
   // Determina se il campione è selezionabile
@@ -77,12 +77,12 @@ const ChampionCard = ({ champion, canSelect = true, spectatorMode = false }) => 
   const handleClick = () => {
     // Log per debug
     if (isDisabled) {
-      console.log(`Click bloccato su campione disabilitato: ${id}`);
+      //console.log(`Click bloccato su campione disabilitato: ${id}`);
       return;
     }
     
     if (isDraftActive && selectable && userCanSelect) {
-      console.log(`Selezionato campione: ${id}`);
+      //console.log(`Selezionato campione: ${id}`);
       selectChampion(champion, state.currentTeam);
     }
   };

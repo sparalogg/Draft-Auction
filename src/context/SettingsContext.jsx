@@ -59,7 +59,7 @@ export function SettingsProvider({ children, initialSettings = {} }) {
 
   // Function to update language
   const changeLanguage = (language) => {
-    console.log("Changing language in context to:", language);
+    //console.log("Changing language in context to:", language);
     
     const validLang = language && ['en', 'it'].includes(language) ? language : 'en';
     

@@ -40,7 +40,7 @@ const SettingsModal = ({ show, onHide }) => {
   const [language, setLanguage] = useState(settings.language || 'en');
 
   useEffect(() => {
-    console.log('Language from settings:', settings.language);
+    //console.log('Language from settings:', settings.language);
     setLanguage(settings.language || 'en');
   }, [settings.language]);
 
@@ -74,7 +74,7 @@ const SettingsModal = ({ show, onHide }) => {
             
             // Verifica se esiste il nodo 'codes'
             if (draftData.codes) {
-              console.log("Codici trovati:", draftData.codes);
+              //console.log("Codici trovati:", draftData.codes);
               
               setAccessCodes({
                 draftCode: currentDraftId || 'N/A',
@@ -128,10 +128,10 @@ const SettingsModal = ({ show, onHide }) => {
   const handleLanguageChange = (e) => {
     const newLanguage = e.target.value;
     
-    console.log('Cambio lingua:', {
+    /*console.log('Cambio lingua:', {
       oldLanguage: language,
       newLanguage: newLanguage
-    });
+    });*/
 
     // Aggiorna lo stato locale
     setLanguage(newLanguage);
@@ -171,7 +171,7 @@ const SettingsModal = ({ show, onHide }) => {
       };
       
       // Log per debug
-      console.log('Saving settings:', validatedSettings);
+      //console.log('Saving settings:', validatedSettings);
       
       // 1. Prima di tutto, aggiorna i nomi dei team
       // Pulisci eventuali spazi all'inizio e alla fine
@@ -202,7 +202,7 @@ const SettingsModal = ({ show, onHide }) => {
       // Chiudi il modal solo quando tutte le operazioni sono completate
       onHide();
       
-      console.log('Settings successfully updated and propagated');
+      //console.log('Settings successfully updated and propagated');
     } catch (error) {
       console.error('Error saving settings:', error);
       alert("Si è verificato un errore durante il salvataggio delle impostazioni. Riprova.");
@@ -392,7 +392,7 @@ const SettingsModal = ({ show, onHide }) => {
                 <option value="1">1 ban</option>
                 <option value="2">2 bans</option>
                 <option value="3">3 bans</option>
-                <option value="4">4 bans</option>
+                <option value="4">4 bans - beta</option>
               </select>
             </div>
 
@@ -478,6 +478,11 @@ const SettingsModal = ({ show, onHide }) => {
               </div>
             </div>
             
+          </div>
+          <div>
+            <center>
+              <small>After saving the settings click on the draft reset button</small>
+            </center>
           </div>
           <div className="modal-footer">
             <button 

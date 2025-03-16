@@ -182,7 +182,7 @@ const LoginPage = () => {
       const blueTeamName = formValues.blueTeamName.trim() || 'Blue Team';
       const redTeamName = formValues.redTeamName.trim() || 'Red Team';
       
-      console.log("Creazione draft con nomi team:", { blueTeamName, redTeamName });
+      //console.log("Creazione draft con nomi team:", { blueTeamName, redTeamName });
       
       // Crea il draft con i nomi dei team
       const draftDetails = await draftContext.createDraft(
@@ -192,12 +192,13 @@ const LoginPage = () => {
       );
       
       // Assicurati che i nomi dei team siano correttamente salvati
-      console.log("Draft creato:", draftDetails);
+      //console.log("Draft creato:", draftDetails);
       
       // Imposta i dettagli del draft creato
       setCreatedDraft({
         draftCode: draftDetails.draftCode,
         accessCodes: draftDetails.accessCodes,
+        startingTeam: 'coinFlip',
         teamNames: {
           blue: blueTeamName, // Assicurati di usare i nomi originali
           red: redTeamName

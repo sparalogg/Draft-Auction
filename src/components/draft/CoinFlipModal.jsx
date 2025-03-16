@@ -85,7 +85,7 @@ const CoinFlipModal = () => {
   const performCoinFlip = () => {
     if (!isAdmin) return;
     
-    console.log("Admin: eseguo coin flip");
+    //console.log("Admin: eseguo coin flip");
     setFlipping(true);
     setAnimationComplete(false);
 
@@ -93,10 +93,10 @@ const CoinFlipModal = () => {
     setTimeout(() => {
       // Genera risultato casuale
       const randomValue = Math.random();
-      console.log("Valore casuale generato:", randomValue);
+      //console.log("Valore casuale generato:", randomValue);
       
       const result = randomValue < 0.5 ? 'blue' : 'red';
-      console.log("Admin: risultato del lancio:", result);
+      //console.log("Admin: risultato del lancio:", result);
       setLocalResult(result);
       setAnimationComplete(true);
       
@@ -106,7 +106,7 @@ const CoinFlipModal = () => {
       
       // Mostriamo il risultato per 4 secondi prima di avviare il draft
       setTimeout(() => {
-        console.log("Admin: Attesa di 4 secondi completata, avvio il draft");
+        //console.log("Admin: Attesa di 4 secondi completata, avvio il draft");
         // Aggiorna lo stato in Firebase per avviare il draft
         startDraft(result);
       }, 4000); // Ritardo di 4 secondi prima di avviare il draft
@@ -116,7 +116,7 @@ const CoinFlipModal = () => {
   // Effetto per sincronizzare l'animazione tra i client
   useEffect(() => {
     if (show && globalResult && !flipping) {
-      console.log(`Client ${state.userTeam}: Inizio animazione coin flip con risultato:`, globalResult);
+      //console.log(`Client ${state.userTeam}: Inizio animazione coin flip con risultato:`, globalResult);
       
       // Avvia l'animazione
       setFlipping(true);
@@ -124,7 +124,7 @@ const CoinFlipModal = () => {
       
       // Dopo 1.5 secondi, mostra il risultato
       setTimeout(() => {
-        console.log(`Client ${state.userTeam}: Completata animazione, mostro risultato:`, globalResult);
+        //console.log(`Client ${state.userTeam}: Completata animazione, mostro risultato:`, globalResult);
         setLocalResult(globalResult);
         setAnimationComplete(true);
       }, 1500);
@@ -134,7 +134,7 @@ const CoinFlipModal = () => {
   // Avvia automaticamente il coin flip quando la modale appare
   useEffect(() => {
     if (show && isAdmin && !flipping && !localResult && !globalResult) {
-      console.log("Admin: avvio automatico del coin flip");
+      //console.log("Admin: avvio automatico del coin flip");
       // Piccolo ritardo per assicurarsi che la modale sia visibile
       setTimeout(() => {
         performCoinFlip();
@@ -144,13 +144,13 @@ const CoinFlipModal = () => {
 
   // Debug useEffect
   useEffect(() => {
-    console.log("CoinFlipModal stato:", {
+    /*console.log("CoinFlipModal stato:", {
       show,
       flipping,
       localResult, 
       globalResult,
       animationComplete
-    });
+    });*/
   }, [show, flipping, localResult, globalResult, animationComplete]);
 
   // Se la modale non è mostrata, non renderizzare nulla
